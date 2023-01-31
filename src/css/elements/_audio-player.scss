@@ -1,0 +1,54 @@
+.audio-player {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "play timeline timeline"
+    "play volume timestamp";
+  grid-template-columns: min-content auto auto;
+  padding: 0 50px;
+
+  @media (min-width: 300px) and (max-width: 1600px) {
+    padding: 0 calc(0px + 50 * ((100vw - 300px) / (1600 - 300)));
+  }
+
+  @media screen and (max-width: 640px) {
+    font-size: 2.4rem;
+  }
+
+  &__play-button {
+    grid-area: play;
+  }
+
+  &__volume {
+    grid-area: volume;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, min-content);
+    grid-template-rows: min-content;
+  }
+
+  &__timeline {
+    grid-area: timeline;
+  }
+
+  &__timestamp {
+    grid-area: timestamp;
+    text-align: right;
+    font-size: 1.4rem;
+  }
+
+  &__btn {
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--player-btn-color);
+
+    &:hover {
+      color: var(--player-btn-color-hover);
+    }
+
+    &_play {
+      font-size: 5rem;
+      margin-right: 10px;
+    }
+  }
+}

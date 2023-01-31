@@ -1,0 +1,19 @@
+@import "./base/colors";
+@import "./base/theme";
+@import "./base/variables";
+@import "./base/base";
+
+@import "./elements/loading";
+@import "./elements/icons";
+@import "./elements/buttons";
+@import "./elements/audio-player";
+@import "./elements/input-range";
+@import "./elements/close";
+@import "./elements/overlay";
+
+@import "./layouts/header";
+@import "./layouts/footer";
+@import "./layouts/index";
+@import "./layouts/game";
+@import "./layouts/gallery";
+@import "./layouts/results";

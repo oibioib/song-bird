@@ -1,0 +1,69 @@
+.btn {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  padding: 5px 15px;
+  text-align: center;
+  border: 0;
+  outline: 0;
+  font-size: 1.6rem;
+  font-family: $font;
+  border-radius: 5px;
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: default;
+
+  @media screen and (max-width: 640px) {
+    padding: 3px 5px;
+  }
+
+  &_big {
+    padding: 15px 25px;
+    font-size: 2rem;
+  }
+
+  &_extra-big {
+    padding: 15px 25px;
+    font-size: 2.6rem;
+  }
+
+  &_light {
+    background: var(--btn-light-bg-color);
+    color: $white;
+    
+    &:hover {
+      background: $color-orange-dark-hover;
+    }
+  }
+  
+  &_dark {
+    background: $color-orange-dark;
+    color: $white;
+    
+    &:hover {
+      background: $color-orange-dark-hover;
+    }
+  }
+  
+  &_transparent {
+    background: none;
+    color: var(--transparent-buttons-color, $white);
+
+    &:hover {
+      background: $color-orange-dark-hover;
+      color: $white;
+    }
+  }
+
+  &_current {
+    color: $color-orange-light;
+  }
+
+  &_active {
+    cursor: pointer;
+  }
+}

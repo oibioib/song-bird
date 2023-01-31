@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <include-part src="partials/head.html">
+  <title>Songbird - Game</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <header class="header block block_mt">
+        <div class="header__logo"></div>
+        <div class="header__score"></div>
+        <div class="header__buttons"></div>
+      </header>
+      <main class="main game block block_mt">
+        <div class="game__steps block"></div>
+        <div class="game__question block block_bg-fill block_rounded block_inner-indent">
+          <div class="game__question-img"></div>
+          <div class="game__question-title"></div>
+          <div class="game__question-audio"></div>
+        </div>
+        <div class="game__answers block block_bg-fill block_rounded block_inner-indent"></div>
+        <div class="game__info block block_bg-fill block_rounded block_inner-indent">
+          <div class="game__info-img"></div>
+          <div class="game__info-title"></div>
+          <div class="game__info-audio"></div>
+          <div class="game__info-description"></div>
+          <div class="game__info-overflow block_bg-fill block block_rounded block_inner-indent"></div>
+        </div>
+        <div class="game__next block"></div>
+      </main>
+      <include-part src="partials/footer.html">
+    </div>
+  </div>
+</body>
+
+</html>

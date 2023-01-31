@@ -1,0 +1,104 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $font;
+  font-weight: 500;
+  min-height: 100vh;
+  background: var(--body-background);
+  color: var(--color);
+  position: relative;
+
+  &.overlay {
+    overflow: hidden;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/img/bird-bg.png") bottom right no-repeat;
+    background-size: 450px;
+    z-index: -1;
+
+    @media (min-width: 360px) and (max-width: 1600px) {
+      background-size: calc(200px + (450 - 200) * ((100vw - 360px) / (1600 - 360)));
+    }
+
+    @media screen and (max-width: 359px) {
+      background-size: 200px;
+    }
+  }
+
+  @media screen and (max-width: 860px) {
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 640px) {
+    font-size: 1.4rem;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1280px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  padding: 0 15px;
+
+  @media screen and (max-width: 480px) {
+    padding: 0 10px;
+  }
+
+  &_max-center-element {
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
+.block {
+  &_mt {
+    margin-top: 15px;
+    @media screen and (max-width: 480px) {
+      margin-top: 10px;
+    }
+  }
+
+  &_bg-fill {
+    background: var(--block-bg-color);
+  }
+
+  &_rounded {
+    border-radius: 7px;
+  }
+
+  &_inner-indent {
+    padding: 10px;
+
+    @media screen and (max-width: 480px) {
+      padding: 5px;
+    }
+  }
+}
+
+.font-bold {
+  font-weight: 700;
+}

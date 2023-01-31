@@ -1,0 +1,14 @@
+.index {
+  transition: background-image 2s ease-in-out;
+
+  &::before {
+    visibility: hidden;
+  }
+
+  &__block {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    gap: 15px;
+  }
+}

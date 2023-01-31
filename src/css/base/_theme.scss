@@ -1,0 +1,34 @@
+:root {
+  --body-background: linear-gradient(135deg, #{$color-dark}, #{$color-dark-2});
+  --color: #{$white};
+  --block-bg-color: #{$color-dark-2};
+  --no-answer: #{rgba($color-dark-btn, 0.6)};
+  --wrong-answer: #ee6767;
+  --right-answer: #51cb92;
+  --no-image: url("../assets/img/no-image.jpg");
+  --btn-bg: #{rgba($color-dark-3, 0.2)};
+  --btn-color: #{$color-dark-btn};
+  --player-btn-color: #{$color-orange-light};
+  --player-btn-color-hover: #{$color-orange-light-hover};
+  --loading: #{$color-orange-light};
+  --close-btn: #{$ligth-theme-color-bg-btn};
+  --close-btn-hover: #{$color-orange-dark-hover};
+}
+
+.light {
+  --body-background: linear-gradient(135deg, #{$ligth-theme-color-body-bg}, #{$white});
+  --color: #{$color-dark};
+  --transparent-buttons-color: #{$color-dark};
+  --block-bg-color: #{$ligth-theme-color-bg-block};
+  --no-answer: #{rgba($color-dark-btn, 0.6)};
+  --wrong-answer: #ee6767;
+  --right-answer: #51cb92;
+  --no-image: url("../assets/img/no-image-light.jpg");
+  --btn-bg: #{$ligth-theme-color-bg-btn};
+  --btn-color: #{$ligth-theme-color-btn};
+  --player-btn-color: #{$color-orange-dark};
+  --player-btn-color-hover: #{$color-orange-dark-hover};
+  --loading: #{$color-orange-dark};
+  --close-btn: #{$color-dark-3};
+  --close-btn-hover: #{$color-orange-dark};
+}

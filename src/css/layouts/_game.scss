@@ -1,0 +1,269 @@
+.game {
+  display: grid;
+  grid-template-areas:
+    "steps steps steps"
+    "question question question"
+    "answers info info"
+    "next next next";
+  grid-template-columns: 25% repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto) minmax(250px, max-content) auto;
+  gap: 15px;
+
+  @media screen and (max-width: 860px) {
+    grid-template-areas:
+      "steps steps steps"
+      "question question question"
+      "answers answers answers"
+      "info info info"
+      "next next next";
+    grid-template-columns: 30% repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  @media screen and (max-width: 480px) {
+    gap: 10px;
+  }
+
+  &__steps {
+    grid-area: steps;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: space-between;
+    background: $color-dark-3;
+    border-radius: 5px;
+
+    @media screen and (max-width: 1100px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__step {
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: none;
+    background: transparent;
+
+    &_active {
+      color: #2b1500;
+      background: $color-orange-light;
+    }
+  }
+
+  &__question {
+    grid-area: question;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 100px max-content;
+    grid-template-areas:
+      "image title"
+      "image audio";
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+
+    @media screen and (max-width: 900px) {
+      grid-template-areas:
+        "image image"
+        "title title"
+        "audio audio";
+      grid-template-rows: auto;
+    }
+
+    @media screen and (max-width: 480px) {
+      gap: 5px;
+    }
+
+    &-img {
+      grid-area: image;
+      background: var(--no-image) center center no-repeat;
+      background-size: cover;
+      border-radius: 5px;
+      width: 380px;
+      height: 240px;
+
+      @media screen and (max-width: 640px) {
+        width: 75%;
+        height: calc(100vw * 2 / 3 * 0.75);
+      }
+
+      @media screen and (max-width: 460px) {
+        width: 50%;
+        height: calc(100vw * 2 / 3 * 0.5);
+      }
+
+      @media screen and (max-width: 360px) {
+        width: 100%;
+        height: calc(100vw * 2 / 3);
+      }
+    }
+
+    &-title {
+      grid-area: title;
+      font-size: 3rem;
+      font-weight: 600;
+
+      @media screen and (max-width: 640px) {
+        font-size: 2.4rem;
+      }
+    }
+
+    &-audio {
+      grid-area: audio;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  &__answers {
+    grid-area: answers;
+    display: grid;
+
+    @media screen and (max-width: 860px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    &-btn {
+      font-size: 1.8rem;
+      justify-content: start;
+
+      @media screen and (max-width: 560px) {
+        font-size: 1.6rem;
+      }
+
+      &:hover {
+        background-color: var(--no-answer);
+      }
+
+      &::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: var(--no-answer);
+        margin-right: 10px;
+      }
+
+      &_wrong {
+        &::before {
+          background-color: var(--wrong-answer);
+        }
+      }
+
+      &_right {
+        &::before {
+          background-color: var(--right-answer);
+        }
+      }
+    }
+  }
+
+  &__info {
+    grid-area: info;
+    display: grid;
+    grid-template-areas:
+      "image audio"
+      "image audio"
+      "title description";
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: auto auto 1fr;
+    gap: 10px;
+    position: relative;
+
+    @media screen and (max-width: 900px) {
+      grid-template-areas:
+        "image title"
+        "audio audio"
+        "description description";
+      grid-template-columns: min-content 1fr;
+      grid-template-rows: auto minmax(70px, min-content) 1fr;
+    }
+
+    @media screen and (max-width: 480px) {
+      gap: 5px;
+    }
+
+    &-img {
+      grid-area: image;
+      background-size: cover;
+      border-radius: 5px;
+      width: 220px;
+      height: 150px;
+
+      @media screen and (max-width: 640px) {
+        width: 160px;
+        height: 105px;
+      }
+    }
+
+    &-title {
+      grid-area: title;
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @media screen and (max-width: 640px) {
+        font-size: 1.6rem;
+      }
+
+      &-latin {
+        display: block;
+        font-size: smaller;
+      }
+    }
+
+    &-audio {
+      grid-area: audio;
+      position: relative;
+      align-self:center;
+    }
+
+    &-description {
+      grid-area: description;
+      // align-self: end;
+    }
+
+    &-overflow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.hidden {
+        display: none;
+      }
+
+      &-text {
+        margin: 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__next {
+    grid-area: next;
+    display: flex;
+    justify-content: center;
+
+    &-btn {
+      flex-basis: 50%;
+
+      @media screen and (max-width: 640px) {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
